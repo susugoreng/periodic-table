@@ -12,8 +12,7 @@ elements = [
     {"symbol": "F", "name": "fluorin"},
     {"symbol": "Na", "name": "natrium"},
     {"symbol": "Cl", "name": "klorin"},
-    {"symbol": "K", "name": "kalium"},
-    {
+    {"symbol": "K", "name": "kalium"}
 ]
 
 # Inisialisasi session state
@@ -51,6 +50,7 @@ if st.button("Kirim Jawaban"):
 
     if st.session_state.round < 5:
         st.session_state.current = random.choice(elements)
+        st.experimental_rerun()
     else:
         st.markdown("---")
         st.subheader(f"🎯 Skor Akhir Kamu: {st.session_state.score}/5")
@@ -62,10 +62,4 @@ if st.button("Kirim Jawaban"):
         else:
             st.warning("📚 Yuk belajar lagi tentang unsur kimia!")
 
-        st.buttonimport streamlit as st
-
-def main_lagi():
-    st.session_state.clear()
-    st.experimental_rerun()
-
-# Pilih simbol yang belum pernah dit
+        st.button("Main Lagi", on_click=lambda: [st.session_state.clear(), st.experimental_rerun()])
