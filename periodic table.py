@@ -50,7 +50,6 @@ if st.button("Kirim Jawaban"):
 
     if st.session_state.round < 5:
         st.session_state.current = random.choice(elements)
-        st.experimental_rerun()
     else:
         st.markdown("---")
         st.subheader(f"🎯 Skor Akhir Kamu: {st.session_state.score}/5")
