@@ -50,7 +50,6 @@ if st.button("Kirim Jawaban"):
 
     if st.session_state.round < 5:
         st.session_state.current = random.choice(elements)
-        st.experimental_rerun()
     else:
         st.markdown("---")
         st.subheader(f"🎯 Skor Akhir Kamu: {st.session_state.score}/5")
@@ -62,4 +61,6 @@ if st.button("Kirim Jawaban"):
         else:
             st.warning("📚 Yuk belajar lagi tentang unsur kimia!")
 
-        st.button("Main Lagi", on_click=lambda: [st.session_state.clear(), st.experimental_rerun()])
+    if st.button("Main Lagi"):
+        st.session_state.clear()
+        st.experimental_rerun()
